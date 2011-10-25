@@ -2,7 +2,7 @@ use strict;
 use warnings;
 use utf8;
 
-package Amon2::Setup::Flavor::Teng;
+package Amon2::Setup::Flavor::TengWithoutLoader;
 use parent qw(Amon2::Setup::Flavor);
 
 sub run {
@@ -33,21 +33,15 @@ sub setup_schema {
 	}
 }
 
-use Teng;
-use Teng::Schema::Loader;
+use <% $module %>::DB;
 sub db {
     my $self = shift;
     if ( !defined $self->{db} ) {
         my $conf = $self->config->{'DBI'}
         or die "missing configuration for 'DBI'";
         my $dbh = DBI->connect(@{$conf});
-        my $schema = Teng::Schema::Loader->load(
-            namespace => '<% $module %>::DB',
-            dbh       => $dbh,
-	    );
-        $self->{db} = Teng->new(
+        $self->{db} = <% $module %>::DB->new(
             dbh    => $dbh,
-            schema => $schema,
 	    );
     }
     return $self->{db};
@@ -56,18 +50,35 @@ sub db {
 1;
 ...
 
-    $self->write_file('t/08_teng.t', <<'...');
+    $self->write_file('lib/<<PATH>>/DB.pm', <<'...');
+package <% $module %>::DB;
+use parent qw(Teng);
+1;
+...
+
+    $self->write_file('lib/<<PATH>>/DB/Schema.pm', <<'...');
+package <% $module %>::DB::Schema;
+use Teng::Schema::Declare;
+
+table {
+    name 'sessions';
+    pk 'id';
+    columns qw(id session_data);
+};
+
+1;
+...
+
+    $self->write_file('t/09_teng_without_loader.t', <<'...');
 use strict;
 use warnings;
-use DBI;
 use Test::More;
 use <% $module %>;
 
-my $dbi = DBI->connect('dbi:SQLite:dbname=db/development.db');
-$dbi->do("create table sessions (id char(5) primary key, session_data text)") or die $dbi->errstr;
 my $teng = <% $module %>->new;
 is(ref $teng, '<% $module %>', 'instance');
-is(ref $teng->db, 'Teng', 'instance');
+is(ref $teng->db, 'My::App::DB', 'instance');
+$teng->db->do("create table sessions (id char(5) primary key, session_data text)") or die $teng->db->errstr;
 $teng->db->insert('sessions', { id => 'abcde', session_data => 'ka2u' });
 my $res = $teng->db->single('sessions', { id => 'abcde' });
 is($res->get_column('session_data'), 'ka2u', 'search');
@@ -84,15 +95,16 @@ __END__
 
 =head1 NAME
 
-Amon2::Setup::Flavor::Teng - Teng Flavor for Amon2
+Amon2::Setup::Flavor::TengWithoutLoader - Teng Schema Flavor for Amon2
 
 =head1 SYNOPSIS
 
-    amon2-setup.pl --flavor Basic,Teng My::App
+    amon2-setup.pl --flavor Basic,TengWithoutLoader My::App
 
 =head1 DESCRIPTION
 
 Easy setup Teng ORM for Amon2.
+This doesn't use Teng::Schema::Loader, create schema class.
 
 =head1 AUTHOR
 
