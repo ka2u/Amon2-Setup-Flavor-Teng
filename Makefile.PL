@@ -5,6 +5,9 @@ WriteMakefile(
     AUTHOR       => 'Kazuhiro Shibuya',
     VERSION_FROM => 'lib/Amon2/Setup/Flavor/Teng.pm',
     PREREQ_PM    => {
+        'Amon2'        => '3.12',
+        'Teng'         => '0.12',
+        'DBD::SQLite'  => '1.33',
     },
     MIN_PERL_VERSION => '5.008001',
     (-d 'xt' and $ENV{AUTOMATED_TESTING} || $ENV{RELEASE_TESTING}) ? (
