@@ -4,6 +4,7 @@ use utf8;
 
 package Amon2::Setup::Flavor::Teng;
 use parent qw(Amon2::Setup::Flavor);
+our $VERSION = '0.01';
 
 sub run {
     my $self = shift;
@@ -28,9 +29,9 @@ sub setup_schema {
     my $fname = lc("sql/${driver_name}.sql");
     open my $fh, '<:encoding(UTF-8)', $fname or die "$fname: $!";
     my $source = do { local $/; <$fh> };
-	for my $stmt (split /;/, $source) {
-		$dbh->do($stmt) or die $dbh->errstr();
-	}
+    for my $stmt (split /;/, $source) {
+        $dbh->do($stmt) or die $dbh->errstr();
+    }
 }
 
 use Teng;
