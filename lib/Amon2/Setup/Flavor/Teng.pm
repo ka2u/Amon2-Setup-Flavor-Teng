@@ -4,7 +4,7 @@ use utf8;
 
 package Amon2::Setup::Flavor::Teng;
 use parent qw(Amon2::Setup::Flavor);
-our $VERSION = '0.01';
+our $VERSION = 'n';
 
 sub run {
     my $self = shift;
