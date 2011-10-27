@@ -85,7 +85,7 @@ __END__
 
 =head1 NAME
 
-Amon2::Setup::Flavor::Teng - Teng Flavor for Amon2
+Amon2::Setup::Flavor::Teng - Teng flavor for Amon2
 
 =head1 SYNOPSIS
 
@@ -98,3 +98,16 @@ Easy setup Teng ORM for Amon2.
 =head1 AUTHOR
 
 Kazuhiro Shibuya
+
+=head1 SEE ALSO
+
+Amon2 L<http://search.cpan.org/~tokuhirom/Amon2/> , Teng L<http://search.cpan.org/~nekokak/Teng/>
+
+=head1 LICENSE
+
+Copyright (C) Kazuhiro Shibuya
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut

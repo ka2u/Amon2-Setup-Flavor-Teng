@@ -109,3 +109,16 @@ This doesn't use Teng::Schema::Loader, create schema class.
 =head1 AUTHOR
 
 Kazuhiro Shibuya
+
+=head1 SEE ALSO
+
+Amon2 L<http://search.cpan.org/~tokuhirom/Amon2/> , Teng L<http://search.cpan.org/~nekokak/Teng/>
+
+=head1 LICENSE
+
+Copyright (C) Kazuhiro Shibuya
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut
