@@ -5,6 +5,7 @@ lib/Amon2/Setup/Flavor/TengWithoutLoader.pm
 Makefile.PL
 MANIFEST			This list of files
 META.yml
+META.json
 README
 t/00_compile.t
 t/01_teng.t
