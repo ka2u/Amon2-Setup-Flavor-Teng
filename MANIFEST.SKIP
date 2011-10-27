@@ -26,3 +26,5 @@ nytprof
 perltidy.ERR$
 ^README.pod$
 ^tags$
+^MYMETA\.yml$
+^MYMETA\.json$
