@@ -1,4 +1,8 @@
 Revision history for Perl extension Amon2::Setup::Flavor::Teng
 
+0.02    Mon Oct 28 12:41:23 2011
+        - fixed generated tests.
+          tests failed if sessions table exists.
+
 0.01    Mon Oct 24 16:59:03 2011
         - original version
