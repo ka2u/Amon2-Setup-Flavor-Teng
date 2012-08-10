@@ -8,7 +8,7 @@ WriteMakefile(
     LICENSE       => 'perl',
     PREREQ_PM     => {
         'Amon2'        => '3.12',
-        'Teng'         => '0.12',
+        'Teng'         => '0.15',
         'DBD::SQLite'  => '1.33',
     },
     MIN_PERL_VERSION => '5.008001',
