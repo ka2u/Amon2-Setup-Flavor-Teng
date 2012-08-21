@@ -1,5 +1,11 @@
 Revision history for Perl extension Amon2::Setup::Flavor::Teng
 
+0.04    Tue Aug 21 19:23:21 2012
+	[Improvements]
+	- correspond to Teng 0.05 (memememomo)
+	[Bug Fixes]
+	- add dependency Amon2::Plugin::DBI (tokuhirom)
+
 0.03    Mon Nov 21 10:18:32 2011
         [Bug Fixes]
         - fix 'Query was empty' error in mysql. (tokuhirom)
