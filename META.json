@@ -1,12 +1,12 @@
 {
-   "abstract" : "unknown",
+   "abstract" : "Teng flavor for Amon2",
    "author" : [
       "Kazuhiro Shibuya"
    ],
-   "dynamic_config" : 1,
-   "generated_by" : "ExtUtils::MakeMaker version 6.59, CPAN::Meta::Converter version 2.112150",
+   "dynamic_config" : 0,
+   "generated_by" : "Minilla/v0.0.53, CPAN::Meta::Converter version 2.130880",
    "license" : [
-      "unknown"
+      "perl_5"
    ],
    "meta-spec" : {
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
@@ -16,29 +16,56 @@
    "no_index" : {
       "directory" : [
          "t",
-         "inc"
+         "xt",
+         "inc",
+         "share",
+         "eg",
+         "examples"
       ]
    },
    "prereqs" : {
-      "build" : {
-         "requires" : {
-            "ExtUtils::MakeMaker" : 0
-         }
-      },
       "configure" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : 0
+            "CPAN::Meta" : "0",
+            "CPAN::Meta::Prereqs" : "0",
+            "Module::Build" : "0.38"
+         }
+      },
+      "develop" : {
+         "requires" : {
+            "Pod::Wordlist::hanekomu" : "0",
+            "Test::CPAN::Meta" : "0",
+            "Test::MinimumVersion" : "0.10108",
+            "Test::Pod" : "1.41",
+            "Test::Spelling" : "0"
          }
       },
       "runtime" : {
          "requires" : {
-            "Amon2" : "3.12",
-            "DBD::SQLite" : "1.33",
-            "Teng" : "0.12",
+            "Amon2" : "3.53",
+            "Amon2::Plugin::DBI" : "0.08",
+            "DBD::SQLite" : "1.37",
+            "Teng" : "0.15",
             "perl" : "5.008001"
          }
       }
    },
-   "release_status" : "stable",
-   "version" : "0.01"
+   "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/ka2u/Amon2-Setup-Flavor-Teng/issues"
+      },
+      "homepage" : "https://github.com/ka2u/Amon2-Setup-Flavor-Teng",
+      "repository" : {
+         "url" : "https://github.com/ka2u/Amon2-Setup-Flavor-Teng.git",
+         "web" : "https://github.com/ka2u/Amon2-Setup-Flavor-Teng"
+      }
+   },
+   "version" : "0.05",
+   "x_contributors" : [
+      "Tokuhiro Matsuno <tokuhirom@gmail.com>",
+      "memememomo <memememomo@gmail.com>",
+      "Hiroaki Yoshida <yoshidaster@gmail.com>",
+      "Kazuhiro Shibuya <stevenlabs@gmail.com>"
+   ]
 }

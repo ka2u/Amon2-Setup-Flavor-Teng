@@ -1,1 +1,0 @@
-lib/Amon2/Setup/Flavor/Teng.pm
