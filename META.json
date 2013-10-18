@@ -43,7 +43,7 @@
       "runtime" : {
          "requires" : {
             "Amon2" : "3.53",
-            "Amon2::Plugin::DBI" : "0.08",
+            "Amon2::DBI" : "0.08",
             "DBD::SQLite" : "1.37",
             "Teng" : "0.15",
             "perl" : "5.008001"
